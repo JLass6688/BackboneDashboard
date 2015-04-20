@@ -7,7 +7,7 @@ $(document).ready(function(event) {
 	var ThirdCardView = Backbone.View.extend({
 		tagName: "article",
 		className: "block-third",
-		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p>"),
+		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p><span class='close'>(x) dismiss</span>"),
 		initialize: function(data){
 			this.render(data);
 		},
@@ -40,7 +40,7 @@ $(document).ready(function(event) {
 	var QuarterCardView = Backbone.View.extend({
 		tagName: "article",
 		className: "block-quarter",
-		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p>"),
+		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p><span class='close'>(x) dismiss</span>"),
 		initialize: function(data){
 			this.render(data);
 		},
@@ -80,7 +80,7 @@ $(document).ready(function(event) {
 	var HalfCardView = Backbone.View.extend({
 		tagName: "article",
 		className: "block-half",
-		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p>"),
+		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p><span class='close'>(x) dismiss</span>"),
 		initialize: function(data){
 			this.render(data);
 		},
@@ -104,7 +104,7 @@ $(document).ready(function(event) {
 	var HalfCardView2 = Backbone.View.extend({
 		tagName: "article",
 		className: "block-half",
-		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p>"),
+		template: _.template("<h3> <%= title %> </h3> <p> <%= message %> </p><span class='close'>(x) dismiss</span>"),
 		initialize: function(data){
 			this.render(data);
 		},
