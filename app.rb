@@ -18,6 +18,17 @@ get '/' do
   erb :index
 end
 
+get '/variables' do  
+	erb :variables
+end
+
+
+#=======================================HELPER METHOD
+def card_parameters
+	request_body = JSON.parse(request.body.read.to_s)
+  	card_args = { title: request_body["title"], message: request_body["message"]}
+end
+
 
 #=======================================API ROUTES
 
@@ -38,26 +49,29 @@ end
 
 post '/api/cards' do 
 
+	card = Card.create(card_parameters)
+
 	content_type :json
-	card = Card.create(params[:card])
 	card.to_json
 
 end
 
 put '/api/cards/:id' do 
 
-	content_type :json
 	card = Card.find(params[:id].to_i)
-	card.update(params[:card])
+	card.update(card_parameters)
+
+	content_type :json
 	card.to_json
 
 end
 
 patch '/api/cards/:id' do 
+	
+	card = Card.find(params[:id].to_i)
+	card.update(card_parameters)
 
 	content_type :json
-	card = Card.find(params[:id].to_i)
-	card.update(params[:card])
 	card.to_json
 
 end

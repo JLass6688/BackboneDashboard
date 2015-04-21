@@ -1,6 +1,7 @@
 $(document).ready(function(event) {
 
 
+
 //==========================================
 //				Third Rows View
 //==========================================
@@ -150,6 +151,30 @@ $(document).ready(function(event) {
 //==========================================
 	var data = {logo: "Logo Here"};
 	var box1 = new LogoCardView(data);
+
+
+
+//==========================================
+//			Models
+//==========================================
+	var cardModel = Backbone.Model.extend({
+		initialize: function() {
+			this.fetch();
+			console.log("Hey, a card is here!");
+		}
+	});
+
+	var cardList = Backbone.Collection.extend({
+		model: cardModel,
+		url: '/api/cards',
+		initialize: function() {
+			console.log('Collection is a go!');
+			this.fetch();
+		}
+	});
+
+	var listOfCards = new cardList();
+
 
 });
 
